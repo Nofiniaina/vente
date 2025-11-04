@@ -12,3 +12,8 @@ vich_uploader:
             uri_prefix: /uploads/subcategories
             upload_destination: '%kernel.project_dir%/public/uploads/subcategories'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+        product_image:
+            uri_prefix: /uploads/products
+            upload_destination: '%kernel.project_dir%/public/uploads/products'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer

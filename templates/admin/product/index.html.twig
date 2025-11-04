@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Product{% endblock %}
 
 {% block body %}
     {% include "components/sidebar.html.twig" %}
+
     <div class="md:ml-64 p-6">
         <div class="flex justify-between items-center mb-4">
             <nav class="flex py-4" aria-label="Breadcumb">
@@ -11,7 +12,7 @@
                     <li class="inline-flex items-center">
                         <a href="" 
                             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
-                            Category
+                            Product
                         </a>
                     </li>
                     <li class="flex items-center">
@@ -25,14 +26,14 @@
                     </li>
                 </ol>
             </nav>
-            <a href="{{path('admin.category.create')}}" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            <a href="{{path('admin.product.create')}}" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 <twig:ux:icon name="tabler:edit" class="w-4 h-4" aria-hidden="true" />
-                Create
+                New
             </a>
         </div>
 
         <div class="bg-white rounded shadow p-4">
-            <table id="category-list-table" data-controller="category-list-table">
+            <table id="product-list-table" data-controller="product-list-table">
                 <thead>
                     <tr>
                         <th>
@@ -47,35 +48,51 @@
                         </th>
                         <th>
                             <span class="flex items-center">
+                                Brand
+                            </span>
+                        </th>
+                        <th>
+                            <span class="flex items-center">
+                                Price
+                            </span>
+                        </th>
+                        <th>
+                            <span class="flex items-center">
+                                Quantity
+                            </span>
+                        </th>
+                        <th>
+                            <span class="flex items-center">
                                 Actions
                             </span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for category in categories %}
-                        <tr>
-                            <td>{{ category.id }}</td>
-                            <td>{{ category.name }}</td>
-                            <td>
-                                <a href="" 
-                                    class="inline-flex items-center bg-blue-500 text-white font-medium me-2 px-2.5 py-0.5 rounded-sm"
-                                >
-                                    <twig:ux:icon name="tabler:eye" class="w-4 h-4" aria-hidden="true" />
-                                    View
-                                </a>
-                                <a href="" 
-                                    class="inline-flex items-center bg-red-500 text-white font-medium me-2 px-2.5 py-0.5 rounded-sm"
-                                >
-                                    <twig:ux:icon name="tabler:edit" class="w-4 h-4" aria-hidden="true" />
-                                    Modify
-                                </a>
-                            </td>
-                        </tr>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.brand}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>
+                            <a href="" 
+                                class="inline-flex items-center bg-blue-500 text-white font-medium me-2 px-2.5 py-0.5 rounded-sm"
+                            >
+                                <twig:ux:icon name="tabler:eye" class="w-4 h-4" aria-hidden="true" />
+                                   View
+                            </a>
+                            <a href="{{path('admin.product.edit', {id: product.id})}}" 
+                                class="inline-flex items-center bg-red-500 text-white font-medium me-2 px-2.5 py-0.5 rounded-sm"
+                            >
+                                <twig:ux:icon name="tabler:edit" class="w-4 h-4" aria-hidden="true" />
+                                Modify
+                            </a>
+                        </td>
+                    </tr>  
                     {% endfor %}
-                    
-               </tbody>
+                </tbody>
             </table>
         </div>
-    </div>
 {% endblock %}
