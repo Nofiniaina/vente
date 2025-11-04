@@ -42,6 +42,24 @@ final class AdminCategoryController extends AbstractController
         ]);
     }
 
+    #[Route('/{id}/edit', name: 'admin.category.edit')]
+    public function edit(int $id, Request $request, CategoryRepository $categoryRepo, EntityManagerInterface $em): Response
+    {
+        $category = $categoryRepo->find($id);
+        $categoryForm = $this->createForm(CategoryType::class, $category);
+        $categoryForm->handleRequest($request);
+
+        if($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('admin.category');
+        }
+
+        return $this->render('admin/category/create.html.twig', [
+            'categoryForm' => $categoryForm,
+        ]);
+    }
+
      #[Route('/{id}/show', name:'admin.category.show')]
     public function show(int $id, CategoryRepository $categoryRepo): Response {
         $categories = $categoryRepo->find($id);
