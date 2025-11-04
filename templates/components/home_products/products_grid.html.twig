@@ -6,7 +6,14 @@
     <div class="grid grid-cols-2 gap-4">
       {% for subCategory in category.subCategories %}
         <div class="flex flex-col">
-          <div class="w-full aspect-square bg-gray-300 rounded-lg"></div>
+          <div class="w-full aspect-square bg-gray-300 rounded-lg overflow-hidden flex items-center justify-cente">
+            {% if subCategory.image %}
+              <img src="{{asset('uploads/subcategories/' ~ subCategory.image )}}" 
+                alt="{{subCategory.name}}"
+                class="w-full h-full object-cover"
+              >
+            {% endif %}
+          </div>
           <p class="mt-2 text-sm">{{ subCategory.name }}</p>
         </div>
       {% endfor %}

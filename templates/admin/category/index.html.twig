@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+    {% include "components/sidebar.html.twig" %}
+    <div class="md:ml-64 p-6">
+        <div class="flex justify-between items-center mb-4">
+            <nav class="flex py-4" aria-label="Breadcumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+                    <li class="inline-flex items-center">
+                        <a href="" 
+                            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
+                            Category
+                        </a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <a href="" 
+                            class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2">
+                            General
+                        </a>
+                    </li>
+                </ol>
+            </nav>
+            <a href="" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                <twig:ux:icon name="tabler:edit" class="w-4 h-4" aria-hidden="true" />
+                Ajouter
+            </a>
+        </div>
+
+        <div class="bg-white rounded shadow p-4">
+            <table id="category-list-table" data-controller="category-list-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="flex items-center">
+                                Id
+                            </span>
+                        </th>
+                        <th>
+                            <span class="flex items-center">
+                                Name
+                            </span>
+                        </th>
+                        <th>
+                            <span class="flex items-center">
+                                Actions
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>
+                                <a href="" 
+                                    class="inline-flex items-center bg-blue-500 text-white font-medium me-2 px-2.5 py-0.5 rounded-sm"
+                                >
+                                    <twig:ux:icon name="tabler:eye" class="w-4 h-4" aria-hidden="true" />
+                                    View
+                                </a>
+                                <a href="" 
+                                    class="inline-flex items-center bg-red-500 text-white font-medium me-2 px-2.5 py-0.5 rounded-sm"
+                                >
+                                    <twig:ux:icon name="tabler:edit" class="w-4 h-4" aria-hidden="true" />
+                                    Modify
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    
+               </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

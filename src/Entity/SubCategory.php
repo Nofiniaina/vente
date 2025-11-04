@@ -5,9 +5,12 @@ namespace App\Entity;
 use App\Entity\Trait\HistoryTrait;
 use App\Repository\SubCategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: SubCategoryRepository::class)]
 #[ORM\HasLifecycleCallbacks]
+#[Vich\Uploadable]
 class SubCategory
 {
 
@@ -30,6 +33,24 @@ class SubCategory
 
     #[ORM\Column]
     private ?\DateTime $updatedAt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'subcategory_image', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
+
+    public function getImageFile(): ?File {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile): void {
+        $this->imageFile = $imageFile;
+
+        if ($imageFile) {
+            $this->updatedAt = new \DateTime();
+        }
+    }
 
     public function getId(): ?int
     {
@@ -80,6 +101,18 @@ class SubCategory
     public function setUpdatedAt(\DateTime $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }
