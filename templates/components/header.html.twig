@@ -1,47 +1,74 @@
-<header class="text-white">
-    <nav class="px-5 py-2 flex items-center gap-10 bg-gray-950">
-        <div class="flex-none flex items-center gap-4">
-            <div class="text-2xl">Tsena Be</div>
-            <div class="flex">
-                <div class="flex items-end">
-                    <twig:ux:icon name="tabler:map-pin" class="w-5 h-10"/>
-                </div>
+<header class="bg-background text-foreground border-b border-border">
+    <nav class="px-5 py-2 flex items-center gap-10 bg-background">
+        
+        <!-- Left -->
+        <div class="flex-none flex items-center gap-6">
+            <div class="text-2xl font-semibold text-primary">
+                Tsena Be
+            </div>
+
+            <div class="flex items-center gap-2">
+                <twig:ux:icon name="tabler:map-pin" class="w-5 h-5 text-primary"/>
                 <div>
-                    <p class="text-xs italic text-gray-300">Deliver to</p>
-                    <p>Madagascar</p>
+                    <p class="text-xs italic text-muted-foreground">Deliver to</p>
+                    <p class="text-sm font-medium">Madagascar</p>
                 </div>
             </div>    
         </div>
         
-        <div class="grow flex rounded-md overflow-hidden focus-within:ring-2 focus-within:ring-orange-400 border border-transparent transition">
-            <div class="px-2 py-3 flex items-center gap-2 bg-gray-200 text-gray-600 text-xs cursor-pointer">
-                All <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
+        <!-- Search -->
+        <div class="grow flex rounded-md overflow-hidden border border-border 
+                    focus-within:ring-2 focus-within:ring-ring transition">
+            
+            <div class="px-3 py-3 flex items-center gap-2 
+                        bg-secondary text-secondary-foreground 
+                        text-xs cursor-pointer">
+                All 
+                <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
             </div>
-            <input type="text" class="grow px-2 bg-white text-gray-600 focus:outline-none">
-            <button class="px-2 py-3 bg-orange-300 hover:bg-orange-400 cursor-pointer">
-                <twig:ux:icon name="tabler:search" class="w-6 h-6"/>
+
+            <input 
+                type="text" 
+                class="grow px-3 bg-background text-foreground 
+                       focus:outline-none placeholder:text-muted-foreground"
+                placeholder="Search products..."
+            >
+
+            <button class="px-4 py-3 bg-primary text-primary-foreground 
+                           hover:opacity-90 transition cursor-pointer">
+                <twig:ux:icon name="tabler:search" class="w-5 h-5"/>
             </button>
         </div>
-        <div class="flex-none flex gap-4">
-            <div class="flex items-center gap-2 cursor-pointer">
-                Language <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
+
+        <!-- Right -->
+        <div class="flex-none flex gap-6 items-center text-sm">
+            
+            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition">
+                Language 
+                <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
             </div>
-            <div class="flex items-center gap-2 cursor-pointer">
-                Sign in <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
+
+            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition">
+                Sign in 
+                <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
             </div>
-            <div class="flex items-center cursor-pointer">
-                <twig:ux:icon name="tabler:shopping-cart" class="w-8 h-8"/>
-                <p>0</p>
+
+            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition">
+                <twig:ux:icon name="tabler:shopping-cart" class="w-6 h-6"/>
+                <p class="font-medium">0</p>
             </div>
+
         </div>
         
     </nav>
-    <div class="bg-gray-800">
-        <ul class="py-2 flex justify-center items-center gap-4">
-            <li>Best sellers</li>
-            <li>Sell on Tsena Be</li>
-            <li>Books</li>
-            <li>Electronics</li>
+
+    <!-- Sub Navigation -->
+    <div class="bg-card border-t border-border">
+        <ul class="py-2 flex justify-center items-center gap-6 text-sm">
+            <li class="hover:text-primary cursor-pointer transition">Best sellers</li>
+            <li class="hover:text-primary cursor-pointer transition">Sell on Tsena Be</li>
+            <li class="hover:text-primary cursor-pointer transition">Books</li>
+            <li class="hover:text-primary cursor-pointer transition">Electronics</li>
         </ul>
     </div>
 </header>

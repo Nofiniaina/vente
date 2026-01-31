@@ -1,48 +1,64 @@
-<footer class="px-10 py-5 w-full bg-gray-800 text-white cursor-pointer">
-    <div class="flex justify-center gap-16 mb-4">
-        <!-- About Section -->
-        <div>
-            <h1 class="font-bold mb-2">Get to know us</h1>
-            <ul>
-                <li>About Tsena Be</li>
-                <li>Careers</li>
-            </ul>
+<footer class="w-full bg-card text-foreground border-t border-border">
+    
+    <div class="px-10 py-10 max-w-7xl mx-auto">
+        
+        <div class="flex flex-wrap justify-between gap-12 mb-10">
+            
+            <!-- About Section -->
+            <div>
+                <h1 class="font-semibold mb-4 text-sm uppercase tracking-wide">
+                    Get to know us
+                </h1>
+                <ul class="space-y-2 text-sm text-muted-foreground">
+                    <li class="hover:text-primary transition">About Tsena Be</li>
+                    <li class="hover:text-primary transition">Careers</li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div>
+                <h1 class="font-semibold mb-4 text-sm uppercase tracking-wide">
+                    Contact
+                </h1>
+                <ul class="space-y-2 text-sm text-muted-foreground">
+                    <li>Email: contact@tsenabe.com</li>
+                    <li>Phone: +261 34 12 345 67</li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div>
+                <h1 class="font-semibold mb-4 text-sm uppercase tracking-wide">
+                    Follow Us
+                </h1>
+                <ul class="flex gap-6 text-sm text-muted-foreground">
+                    <li>
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition">
+                            <twig:ux:icon name="tabler:brand-facebook" class="w-4 h-4"/>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition">
+                            <twig:ux:icon name="tabler:brand-x" class="w-4 h-4"/>
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center gap-2 hover:text-primary transition">
+                            <twig:ux:icon name="tabler:brand-instagram" class="w-4 h-4"/>
+                            Instagram
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <!-- Contact Section -->
-        <div>
-            <h1 class="font-bold mb-2">Contact</h1>
-            <ul>
-                <li>Email: contact@tsenabe.com</li>
-                <li>Phone: +261 34 12 345 67</li>
-            </ul>
+        <!-- Divider -->
+        <div class="border-t border-border pt-6 text-center text-sm text-muted-foreground">
+            &copy; 2025 Tsena Be. All rights reserved.
         </div>
 
-        <!-- Social Media Section -->
-        <div>
-            <h1 class="font-bold mb-2">Follow Us</h1>
-            <ul class="flex gap-4">
-                <li>
-                    <a href="#" class="hover:text-gray-400">
-                        <twig:ux:icon name="tabler:brand-facebook" class=" w-4 h-4"/> Facebook
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="hover:text-gray-400">
-                        <twig:ux:icon name="tabler:brand-x" class=" w-4 h-4"/> Twitter
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="hover:text-gray-400">
-                        <twig:ux:icon name="tabler:brand-instagram" class=" w-4 h-4"/> Instagram
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center text-gray-400 text-sm">
-        &copy; 2025 Tsena Be. All rights reserved.
     </div>
 </footer>

@@ -1,20 +1,29 @@
 <div class="grid grid-cols-4 gap-2">
   {% for category in categories %}
-  <div class="m-5 p-5 bg-white rounded border border-gray-200 shadow-sm -translate-y-20">
-    <h1 class="text-lg font-semibold mb-2">{{ category.name }}</h1>
+  <div class="m-5 p-5 bg-card rounded border border-border shadow-sm -translate-y-20">
+    
+    <h1 class="text-lg font-semibold mb-2 text-foreground">
+      {{ category.name }}
+    </h1>
 
     <div class="grid grid-cols-2 gap-4">
       {% for subCategory in category.subCategories %}
-        <div class="flex flex-col">
-          <div class="w-full aspect-square bg-gray-300 rounded-lg overflow-hidden flex items-center justify-cente">
+        <div class="flex flex-col group cursor-pointer">
+          
+          <div class="w-full aspect-square bg-muted rounded-lg overflow-hidden flex items-center justify-center">
             {% if subCategory.image %}
-              <img src="{{asset('uploads/subcategories/' ~ subCategory.image )}}" 
-                alt="{{subCategory.name}}"
-                class="w-full h-full object-cover"
+              <img 
+                src="{{ asset('uploads/subcategories/' ~ subCategory.image ) }}" 
+                alt="{{ subCategory.name }}"
+                class="w-full h-full object-cover group-hover:scale-105 transition"
               >
             {% endif %}
           </div>
-          <p class="mt-2 text-sm">{{ subCategory.name }}</p>
+
+          <p class="mt-2 text-sm text-muted-foreground group-hover:text-primary transition">
+            {{ subCategory.name }}
+          </p>
+
         </div>
       {% endfor %}
       
