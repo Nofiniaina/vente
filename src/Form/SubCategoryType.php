@@ -2,9 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Category;
 use App\Entity\SubCategory;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,7 +19,7 @@ class SubCategoryType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'mt-2 w-full h-10 px-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500',
-                    'placeholder' => 'Entrer la référence BP...'
+                    'placeholder' => 'Entrer la référence BP...',
                 ],
             ])
             ->add('imageFile', DropzoneType::class, [
@@ -43,8 +41,8 @@ class SubCategoryType extends AbstractType
                             'image/webp',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid image file (JPEG, JPG, PNG, GIF, or WEBP).',
-                    ])
-                ]
+                    ]),
+                ],
             ])
         ;
     }

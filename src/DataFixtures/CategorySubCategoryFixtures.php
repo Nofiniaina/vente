@@ -13,35 +13,35 @@ class CategorySubCategoryFixtures extends Fixture
     {
         $categories = [
             'Smartphones & Tablets' => [
-                'Smartphones', 'Tablets', 'Accessories'
+                'Smartphones', 'Tablets', 'Accessories',
             ],
             'Computers & Laptops' => [
-                'Laptops', 'Desktops', 'Computer Components', 'Accessories'
+                'Laptops', 'Desktops', 'Computer Components', 'Accessories',
             ],
             'Gaming' => [
-                'Consoles', 'Games', 'Gaming Accessories'
+                'Consoles', 'Games', 'Gaming Accessories',
             ],
             'Audio & Music' => [
-                'Headphones', 'Speakers', 'Microphones'
+                'Headphones', 'Speakers', 'Microphones',
             ],
             'Smart Home & IoT' => [
-                'Smart Assistants', 'Smart Lighting', 'Security', 'Home Automation'
+                'Smart Assistants', 'Smart Lighting', 'Security', 'Home Automation',
             ],
             'Wearables' => [
-                'Smartwatches', 'Fitness Trackers', 'VR & AR Devices'
+                'Smartwatches', 'Fitness Trackers', 'VR & AR Devices',
             ],
             'Photography & Video' => [
-                'Cameras', 'Lenses', 'Accessories'
+                'Cameras', 'Lenses', 'Accessories',
             ],
             'Networking & Storage' => [
-                'Routers & Wi-Fi', 'External Storage', 'NAS & Servers'
+                'Routers & Wi-Fi', 'External Storage', 'NAS & Servers',
             ],
             'Office Equipment' => [
-                'Printers & Scanners', 'Projectors', 'Office Accessories'
+                'Printers & Scanners', 'Projectors', 'Office Accessories',
             ],
             'Tech Gadgets & Miscellaneous' => [
-                'Drones', 'Action Cameras', 'E-readers', 'Tech Toys'
-            ]
+                'Drones', 'Action Cameras', 'E-readers', 'Tech Toys',
+            ],
         ];
 
         foreach ($categories as $categoryName => $subCategoryName) {

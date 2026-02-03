@@ -24,15 +24,18 @@ final class AdminProductController extends AbstractController
         ]);
     }
 
-    #[Route('/create', name:'admin.product.create')]
-    public function create(Request $request, EntityManagerInterface $em) : Response {
+    #[Route('/create', name: 'admin.product.create')]
+    public function create(Request $request, EntityManagerInterface $em): Response
+    {
         $product = new Product();
         $productForm = $this->createForm(ProductType::class, $product, [
-            'attr' => ['enctype' => 'multipart/form-data'],
+            'attr' => [
+                'enctype' => 'multipart/form-data',
+            ],
         ]);
         $productForm->handleRequest($request);
 
-        if($productForm->isSubmitted() && $productForm->isValid()) {
+        if ($productForm->isSubmitted() && $productForm->isValid()) {
             $em->persist($product);
             $em->flush();
 
@@ -43,16 +46,19 @@ final class AdminProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name:'admin.product.edit')]
-    public function edit(int $id, Request $request, ProductRepository $productRepo, EntityManagerInterface $em) : Response {
+    #[Route('/{id}/edit', name: 'admin.product.edit')]
+    public function edit(int $id, Request $request, ProductRepository $productRepo, EntityManagerInterface $em): Response
+    {
         $product = $productRepo->find($id);
 
         $productForm = $this->createForm(ProductType::class, $product, [
-            'attr' => ['enctype' => 'multipart/form-data'],
+            'attr' => [
+                'enctype' => 'multipart/form-data',
+            ],
         ]);
         $productForm->handleRequest($request);
 
-        if($productForm->isSubmitted() && $productForm->isValid()) {
+        if ($productForm->isSubmitted() && $productForm->isValid()) {
             $em->persist($product);
             $em->flush();
 

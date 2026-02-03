@@ -8,17 +8,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\UX\Turbo\Attribute\Broadcast;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: SubCategoryRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 #[Vich\Uploadable]
-#[Broadcast]
 class SubCategory
 {
-
-    use  HistoryTrait;
+    use HistoryTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -55,11 +52,13 @@ class SubCategory
         $this->products = new ArrayCollection();
     }
 
-    public function getImageFile(): ?File {
+    public function getImageFile(): ?File
+    {
         return $this->imageFile;
     }
 
-    public function setImageFile(?File $imageFile): void {
+    public function setImageFile(?File $imageFile): void
+    {
         $this->imageFile = $imageFile;
 
         if ($imageFile) {
@@ -142,7 +141,7 @@ class SubCategory
 
     public function addProduct(Product $product): static
     {
-        if (!$this->products->contains($product)) {
+        if (! $this->products->contains($product)) {
             $this->products->add($product);
             $product->setSubcategory($this);
         }

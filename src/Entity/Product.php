@@ -7,13 +7,11 @@ use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\UX\Turbo\Attribute\Broadcast;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 #[Vich\Uploadable]
-#[Broadcast]
 class Product
 {
     use HistoryTrait;
@@ -54,11 +52,13 @@ class Product
     #[ORM\Column]
     private ?\DateTime $updatedAt = null;
 
-    public function getImageFile(): ?File {
+    public function getImageFile(): ?File
+    {
         return $this->imageFile;
     }
 
-    public function setImageFile(?File $imageFile): void {
+    public function setImageFile(?File $imageFile): void
+    {
         $this->imageFile = $imageFile;
 
         if ($imageFile) {

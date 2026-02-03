@@ -25,15 +25,18 @@ final class AdminSubCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/create', name:'admin.subcategory.create')]
-    public function create(Request $request, EntityManagerInterface $em):Response {
+    #[Route('/create', name: 'admin.subcategory.create')]
+    public function create(Request $request, EntityManagerInterface $em): Response
+    {
         $subcategory = new SubCategory();
         $subcategoryForm = $this->createForm(CreateSubCategoryType::class, $subcategory, [
-            'attr' => ['enctype' => 'multipart/form-data'],
+            'attr' => [
+                'enctype' => 'multipart/form-data',
+            ],
         ]);
         $subcategoryForm->handleRequest($request);
 
-        if($subcategoryForm->isSubmitted() && $subcategoryForm->isValid()) {
+        if ($subcategoryForm->isSubmitted() && $subcategoryForm->isValid()) {
             $em->persist($subcategory);
             $em->flush();
 
@@ -45,8 +48,9 @@ final class AdminSubCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/show', name:'admin.subcategory.show')]
-    public function show(int $id, SubCategoryRepository $subcategoryRepo): Response {
+    #[Route('/{id}/show', name: 'admin.subcategory.show')]
+    public function show(int $id, SubCategoryRepository $subcategoryRepo): Response
+    {
         $subcategories = $subcategoryRepo->find($id);
 
         return $this->render('admin/subcategory/', [
@@ -54,15 +58,18 @@ final class AdminSubCategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name:'admin.subcategory.edit')]
-    public function edit(int $id, Request $request, SubCategoryRepository $subcategoryRepo, EntityManagerInterface $em): Response {
+    #[Route('/{id}/edit', name: 'admin.subcategory.edit')]
+    public function edit(int $id, Request $request, SubCategoryRepository $subcategoryRepo, EntityManagerInterface $em): Response
+    {
         $subcategory = $subcategoryRepo->find($id);
         $subcategoryForm = $this->createForm(SubCategoryType::class, $subcategory, [
-            'attr' => ['enctype' => 'multipart/form-data'],
+            'attr' => [
+                'enctype' => 'multipart/form-data',
+            ],
         ]);
         $subcategoryForm->handleRequest($request);
 
-        if($subcategoryForm->isSubmitted() && $subcategoryForm->isValid()) {
+        if ($subcategoryForm->isSubmitted() && $subcategoryForm->isValid()) {
             $em->flush();
 
             return $this->redirectToRoute('admin.subcategory');

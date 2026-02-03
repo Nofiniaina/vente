@@ -4,7 +4,7 @@ namespace App\Entity\Trait;
 
 use Doctrine\ORM\Mapping as ORM;
 
-trait HistoryTrait 
+trait HistoryTrait
 {
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void

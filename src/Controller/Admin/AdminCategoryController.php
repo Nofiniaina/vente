@@ -30,7 +30,7 @@ final class AdminCategoryController extends AbstractController
         $categoryForm = $this->createForm(CategoryType::class, $category);
         $categoryForm->handleRequest($request);
 
-        if($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+        if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
             $em->persist($category);
             $em->flush();
 
@@ -49,7 +49,7 @@ final class AdminCategoryController extends AbstractController
         $categoryForm = $this->createForm(CategoryType::class, $category);
         $categoryForm->handleRequest($request);
 
-        if($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+        if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
             $em->flush();
 
             return $this->redirectToRoute('admin.category');
@@ -60,8 +60,9 @@ final class AdminCategoryController extends AbstractController
         ]);
     }
 
-     #[Route('/{id}/show', name:'admin.category.show')]
-    public function show(int $id, CategoryRepository $categoryRepo): Response {
+    #[Route('/{id}/show', name: 'admin.category.show')]
+    public function show(int $id, CategoryRepository $categoryRepo): Response
+    {
         $categories = $categoryRepo->find($id);
 
         return $this->render('admin/subcategory/show.html.twig', [
