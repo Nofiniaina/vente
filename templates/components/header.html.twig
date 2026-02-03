@@ -1,74 +1,170 @@
-<header class="bg-background text-foreground border-b border-border">
-    <nav class="px-5 py-2 flex items-center gap-10 bg-background">
-        
-        <!-- Left -->
-        <div class="flex-none flex items-center gap-6">
-            <div class="text-2xl font-semibold text-primary">
-                Tsena Be
-            </div>
-
-            <div class="flex items-center gap-2">
-                <twig:ux:icon name="tabler:map-pin" class="w-5 h-5 text-primary"/>
-                <div>
-                    <p class="text-xs italic text-muted-foreground">Deliver to</p>
-                    <p class="text-sm font-medium">Madagascar</p>
+<!-- Header -->
+<header class="bg-background text-foreground shadow-md z-50">
+    
+    <!-- Top Bar -->
+    <div class="bg-muted/40 border-b border-border/50">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex items-center justify-between py-2 text-xs">
+                <div class="flex items-center gap-6">
+                    <a href="#" class="flex items-center gap-2 hover:text-primary transition-colors group">
+                        <twig:ux:icon name="tabler:map-pin" class="w-4 h-4 text-primary"/>
+                        <span class="hidden sm:inline">Deliver to <strong>Madagascar</strong></span>
+                    </a>
+                    <a href="#" class="hidden md:flex items-center gap-1 hover:text-primary transition-colors">
+                        <twig:ux:icon name="tabler:truck-delivery" class="w-4 h-4"/>
+                        <span>Track Order</span>
+                    </a>
                 </div>
-            </div>    
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-primary transition-colors hidden sm:inline">
+                        Customer Service
+                    </a>
+                    <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                        <twig:ux:icon name="tabler:language" class="w-4 h-4"/>
+                        <span>EN</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        
-        <!-- Search -->
-        <div class="grow flex rounded-md overflow-hidden border border-border 
-                    focus-within:ring-2 focus-within:ring-ring transition">
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="container mx-auto px-4 lg:px-6 py-4">
+        <div class="flex items-center gap-4 lg:gap-8">
             
-            <div class="px-3 py-3 flex items-center gap-2 
-                        bg-secondary text-secondary-foreground 
-                        text-xs cursor-pointer">
-                All 
-                <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
+            <!-- Logo -->
+            <a href="/" class="flex-none group">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-primary rounded-xl 
+                                flex items-center justify-center shadow-lg
+                                group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-primary-foreground font-bold text-lg">TB</span>
+                    </div>
+                    <span class="text-2xl font-bold text-primary hidden sm:inline">
+                        Tsena Be
+                    </span>
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-3xl">
+                <div class="relative">
+                    <div class="flex items-center rounded-xl overflow-hidden 
+                                bg-muted/50 border-2 border-border
+                                focus-within:border-primary focus-within:bg-background
+                                transition-all duration-300">
+                        
+                        <div class="relative">
+                            <button class="h-full px-4 py-3 flex items-center gap-2
+                                        text-sm font-medium text-foreground
+                                        hover:bg-muted transition-colors
+                                        border-r border-border">
+                                <span class="hidden md:inline">All</span>
+                                <twig:ux:icon name="tabler:chevron-down" class="w-4 h-4"/>
+                            </button>
+                        </div>
+
+                        <input 
+                            type="search" 
+                            class="flex-1 px-4 py-3 bg-transparent text-foreground text-sm
+                                   focus:outline-none placeholder:text-muted-foreground"
+                            placeholder="What are you looking for today?"
+                            aria-label="Search products"
+                        >
+
+                        <button class="px-6 py-3 bg-primary
+                                       text-primary-foreground font-medium
+                                       hover:bg-primary/90
+                                       transition-all duration-300 active:scale-95" 
+                                aria-label="Search">
+                            <twig:ux:icon name="tabler:search" class="w-5 h-5"/>
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <input 
-                type="text" 
-                class="grow px-3 bg-background text-foreground 
-                       focus:outline-none placeholder:text-muted-foreground"
-                placeholder="Search products..."
-            >
+            <!-- Right Actions -->
+            <div class="flex-none flex items-center gap-2 lg:gap-4">
+                
+                <button class="hidden lg:flex flex-col items-center gap-1 px-3 py-2 rounded-xl
+                               hover:bg-primary/10
+                               transition-all duration-300 group">
+                    <div class="relative">
+                        <twig:ux:icon name="tabler:heart" class="w-6 h-6 group-hover:text-primary transition-colors"/>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-accent text-accent-foreground 
+                                     text-[10px] font-bold rounded-full flex items-center justify-center">
+                            3
+                        </span>
+                    </div>
+                    <span class="text-[10px] font-medium">Wishlist</span>
+                </button>
 
-            <button class="px-4 py-3 bg-primary text-primary-foreground 
-                           hover:opacity-90 transition cursor-pointer">
-                <twig:ux:icon name="tabler:search" class="w-5 h-5"/>
-            </button>
+                <button class="flex flex-col items-center gap-1 px-3 py-2 rounded-xl
+                               hover:bg-primary/10
+                               transition-all duration-300 group">
+                    <twig:ux:icon name="tabler:user-circle" class="w-6 h-6 group-hover:text-primary transition-colors"/>
+                    <span class="text-[10px] font-medium hidden sm:inline">Account</span>
+                </button>
+
+                <button class="relative flex flex-col items-center gap-1 px-3 py-2 rounded-xl
+                               bg-primary/10
+                               hover:bg-primary/20
+                               transition-all duration-300 group
+                               ring-2 ring-primary/20 hover:ring-primary/40">
+                    <div class="relative">
+                        <twig:ux:icon name="tabler:shopping-cart" class="w-6 h-6 text-primary"/>
+                        <span class="absolute -top-2 -right-2 min-w-5 h-5 px-1
+                                     bg-primary
+                                     text-primary-foreground text-[10px] font-bold 
+                                     rounded-full flex items-center justify-center
+                                     shadow-lg group-hover:scale-110 transition-transform">
+                            0
+                        </span>
+                    </div>
+                    <span class="text-[10px] font-bold text-primary hidden sm:inline">Cart</span>
+                </button>
+            </div>
         </div>
-
-        <!-- Right -->
-        <div class="flex-none flex gap-6 items-center text-sm">
-            
-            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition">
-                Language 
-                <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
-            </div>
-
-            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition">
-                Sign in 
-                <twig:ux:icon name="tabler:triangle-inverted-filled" class="w-2 h-2"/>
-            </div>
-
-            <div class="flex items-center gap-1 cursor-pointer hover:text-primary transition">
-                <twig:ux:icon name="tabler:shopping-cart" class="w-6 h-6"/>
-                <p class="font-medium">0</p>
-            </div>
-
-        </div>
-        
     </nav>
 
-    <!-- Sub Navigation -->
-    <div class="bg-card border-t border-border">
-        <ul class="py-2 flex justify-center items-center gap-6 text-sm">
-            <li class="hover:text-primary cursor-pointer transition">Best sellers</li>
-            <li class="hover:text-primary cursor-pointer transition">Sell on Tsena Be</li>
-            <li class="hover:text-primary cursor-pointer transition">Books</li>
-            <li class="hover:text-primary cursor-pointer transition">Electronics</li>
-        </ul>
+    <!-- Category Navigation Bar -->
+    <div class="bg-card border-t border-border/50">
+        <div class="container mx-auto px-4 lg:px-6">
+            <ul class="flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
+                <li>
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-lg
+                                   bg-primary text-primary-foreground font-medium text-sm
+                                   hover:shadow-md transition-all duration-300 whitespace-nowrap">
+                        <twig:ux:icon name="tabler:menu-2" class="w-4 h-4"/>
+                        <span>Categories</span>
+                    </button>
+                </li>
+
+                <li>
+                    <a href="#" class="px-4 py-2 rounded-lg text-sm font-medium 
+                                      hover:bg-muted transition-colors whitespace-nowrap">
+                        New Arrivals
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="px-4 py-2 rounded-lg text-sm font-medium 
+                                      hover:bg-muted transition-colors whitespace-nowrap">
+                        Best Sellers
+                    </a>
+                </li>
+
+                <li class="ml-auto">
+                    <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg
+                                      text-sm font-medium text-primary
+                                      hover:bg-primary/10 transition-all whitespace-nowrap group">
+                        <span>Sell on Tsena Be</span>
+                        <twig:ux:icon name="tabler:arrow-narrow-right" 
+                                     class="w-4 h-4 group-hover:translate-x-1 transition-transform"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
+
 </header>
